@@ -1,0 +1,127 @@
+
+/* Сброс стилей и общие настройки */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Градиентный фон */
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #52091a, #962b4e);
+      z-index: 0;
+    }
+
+    /* Центральный экран с текстом и кнопкой */
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      transition: opacity 1s ease;
+    }
+
+    /* Заголовок */
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    /* Обычный текст и выделенный */
+    p, em {
+      font-size: 18px;
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+
+    /* Стиль кнопки */
+    .btn {
+      background-color: #e43eac;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      user-select: none; /* отключаем выделение текста при касании */
+    }
+
+    /* Эффект при наведении на кнопку */
+    .btn:hover {
+      background-color: #610c5d;
+    }
+
+    /* Падающее сердечко */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ff69b4;
+      z-index: 1;
+      animation: fall 6s linear forwards;
+      pointer-events: none;
+    }
+
+    /* Анимация падения сердечек */
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Холст с матрицей */
+    canvas {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: transparent;
+    }
+
+    /* ========== НОВОЕ: Адаптивные стили для мобильных ========== */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+      p, em {
+        font-size: 14px;
+        max-width: 90%;
+        margin-bottom: 15px;
+      }
+      .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+        border-radius: 6px;
+      }
+      .heart {
+        font-size: 20px !important; /* уменьшаем размер сердечек */
+      }
+      canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
